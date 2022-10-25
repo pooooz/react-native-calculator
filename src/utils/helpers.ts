@@ -1,17 +1,16 @@
-import React from 'react';
 import Calc from './calculator';
 import {sendCommand} from './commands';
-import {OperationTypes} from './interfaces';
+import {OperationTypes, HelperArguments} from './interfaces';
 
-export const handleParenthesisMode = (
-  buttonValue: string,
-  expression: {input: string; value: string},
-  expressionDispatch: React.Dispatch<{type: string; payload: string}>,
-  setIsParenthesis: React.Dispatch<React.SetStateAction<boolean>>,
-  changeHistory: () => void,
-  setCalculator: React.Dispatch<React.SetStateAction<Calc>>,
-  currentValue: number,
-) => {
+export const handleParenthesisMode = ({
+  buttonValue,
+  expression,
+  expressionDispatch,
+  setIsParenthesis,
+  changeHistory,
+  setCalculator,
+  currentValue,
+}: HelperArguments) => {
   const {value, input} = expression;
   const openedParenthesisCount = (input.match(/\(/g) || []).length;
   const closedParenthesisCount = (input.match(/\)/g) || []).length;
@@ -80,15 +79,15 @@ export const handleParenthesisMode = (
   }
 };
 
-export const handlePressHelper = (
-  buttonValue: string,
-  expression: {input: string; value: string},
-  expressionDispatch: React.Dispatch<{type: string; payload: string}>,
-  setIsParenthesis: React.Dispatch<React.SetStateAction<boolean>>,
-  changeHistory: () => void,
-  setCalculator: React.Dispatch<React.SetStateAction<Calc>>,
-  currentValue: number,
-) => {
+export const handlePressHelper = ({
+  buttonValue,
+  expression,
+  expressionDispatch,
+  setIsParenthesis,
+  changeHistory,
+  setCalculator,
+  currentValue,
+}: HelperArguments) => {
   const {value, input} = expression;
   if (/\d/.test(buttonValue) || buttonValue === '.') {
     expressionDispatch({type: 'number', payload: buttonValue});

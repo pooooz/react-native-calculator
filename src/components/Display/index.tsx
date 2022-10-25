@@ -1,11 +1,7 @@
 import {TextInput} from 'react-native';
 
-interface DisplayProps {
-  expression: {
-    value: string;
-    input: string;
-  };
-}
+import {DisplayProps} from './interfaces';
+
 export const Display = ({expression}: DisplayProps) => {
   console.log('Display rendered', expression);
   return (

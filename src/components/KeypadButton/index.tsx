@@ -1,9 +1,6 @@
 import {StyleSheet, Text, TouchableOpacity} from 'react-native';
 
-interface KeypadButtonProps {
-  handlePress: () => void;
-  children: string;
-}
+import {KeypadButtonProps} from './interfaces';
 
 export const KeypadButton = ({handlePress, children}: KeypadButtonProps) => {
   return (

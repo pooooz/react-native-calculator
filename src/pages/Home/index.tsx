@@ -1,11 +1,12 @@
-import {useState, useReducer} from 'react';
+import {useReducer, useState} from 'react';
 import {View} from 'react-native';
 
-import {Keypad} from '../../components/Keypad';
-import {Display} from '../../components/Display';
+import {Keypad} from '@components/Keypad';
+import {Display} from '@components/Display';
 
-import Calc from '../../utils/calculator';
-import {handleParenthesisMode, handlePressHelper} from '../../utils/helpers';
+import Calc from '@utils/calculator';
+import {handleParenthesisMode, handlePressHelper} from '@utils/helpers';
+
 import {expressionReducer} from './reducer';
 
 export const Home = () => {
@@ -22,24 +23,24 @@ export const Home = () => {
   };
 
   const handlePress = (buttonValue: string) => () => {
-    const helperArguments = [
+    const helperArguments = {
       buttonValue,
       expression,
       expressionDispatch,
       setIsParenthesis,
       changeHistory,
       setCalculator,
-      calculator.getCurrentValue(),
-    ] as const;
+      currentValue: calculator.getCurrentValue(),
+    } as const;
 
     if (isParenthesis) {
       if (buttonValue === '+/-' || buttonValue === '=') {
         return;
       }
-      handleParenthesisMode(...helperArguments);
+      handleParenthesisMode(helperArguments);
       return;
     }
-    handlePressHelper(...helperArguments);
+    handlePressHelper(helperArguments);
   };
 
   return (
