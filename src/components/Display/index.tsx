@@ -29,6 +29,7 @@ const styles = StyleSheet.create({
   },
   valueInput: {
     padding: 20,
+    paddingBottom: 0,
     fontFamily: 'PressStart2P',
     fontSize: 24,
     textAlign: 'right',

@@ -1,8 +1,9 @@
-import {useEffect, useReducer, useRef, useState} from 'react';
+import {useEffect, useReducer, useState} from 'react';
 import {StyleSheet, Vibration, View} from 'react-native';
 
 import {Keypad} from '@components/Keypad';
 import {Display} from '@components/Display';
+import {History} from '@components/History';
 
 import Calc from '@utils/calculator';
 import {handleParenthesisMode, handlePressHelper} from '@utils/helpers';
@@ -16,7 +17,8 @@ import {expressionReducer} from './reducer';
 import {HistoryRecord} from './interfaces';
 
 export const Home = () => {
-  const history = useRef<Array<HistoryRecord> | null>(null);
+  const [history, setHistory] = useState<Array<HistoryRecord>>([]);
+
   const [calculator, setCalculator] = useState(new Calc(0));
   const [isParenthesis, setIsParenthesis] = useState(false);
 
@@ -27,14 +29,15 @@ export const Home = () => {
 
   useEffect(() => {
     getCalculationsHistory().then(data => {
-      history.current = data;
+      setHistory(data);
     });
   }, []);
 
   const changeHistory = async (exp: string, res: number) => {
-    const newHistory = [...(history.current as Array<HistoryRecord>)];
+    const newHistory = [...(history as Array<HistoryRecord>)];
     newHistory.unshift({expression: exp, result: res});
-    history.current = newHistory;
+    setCalculationsHistory(newHistory);
+    setHistory(newHistory);
   };
 
   const handlePress = (buttonValue: string) => () => {
@@ -68,6 +71,7 @@ export const Home = () => {
   return (
     <View style={styles.homeContainer}>
       <Display expression={expression} />
+      <History history={history} />
       <Keypad handlePress={handlePress} />
     </View>
   );

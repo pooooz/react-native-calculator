@@ -1,14 +1,18 @@
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
-export const getCalculationsHistory = async () => {
+import {HistoryRecord} from '@pages/Home/interfaces';
+
+export const getCalculationsHistory = async (): Promise<
+  Array<HistoryRecord>
+> => {
   const attempt = await AsyncStorage.getItem('history');
   if (attempt) {
-    return JSON.parse(attempt) || [];
+    return (JSON.parse(attempt) as Array<HistoryRecord>) || [];
   }
   return [];
 };
 
-export const setCalculationsHistory = async (history: string) => {
+export const setCalculationsHistory = async (history: Array<HistoryRecord>) => {
   await AsyncStorage.setItem(
     'history',
     JSON.stringify(history, (key, value) => {

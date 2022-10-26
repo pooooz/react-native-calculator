@@ -4,7 +4,6 @@ module.exports = {
     '@react-native-community',
     'plugin:@typescript-eslint/eslint-recommended',
     'plugin:@typescript-eslint/recommended',
-    'plugin:import/typescript',
   ],
   parser: '@typescript-eslint/parser',
   plugins: ['@typescript-eslint', 'react-native'],
