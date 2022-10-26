@@ -1,10 +1,4 @@
-import {
-  Dimensions,
-  StyleSheet,
-  Text,
-  TouchableHighlight,
-  TouchableOpacity,
-} from 'react-native';
+import {Dimensions, StyleSheet, Text, TouchableHighlight} from 'react-native';
 
 import {KeypadButtonProps} from './interfaces';
 

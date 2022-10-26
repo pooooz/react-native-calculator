@@ -21,11 +21,6 @@ const styles = StyleSheet.create({
   container: {
     height: '30%',
   },
-  heading: {
-    fontFamily: 'PressStart2P',
-    color: '#838383',
-    marginBottom: 20,
-  },
   emptyPlug: {
     fontFamily: 'PressStart2P',
     color: '#7c7c7c',
