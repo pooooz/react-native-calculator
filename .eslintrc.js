@@ -7,23 +7,7 @@ module.exports = {
     'plugin:import/typescript',
   ],
   parser: '@typescript-eslint/parser',
-  plugins: ['@typescript-eslint'],
-  settings: {
-    'import/resolver': {
-      node: {
-        paths: ['src'],
-        extensions: ['.js', '.jsx', '.ts', '.tsx'],
-      },
-      alias: {
-        map: [
-          ['components', './components'],
-          ['pages', './pages'],
-          ['utils', './utils'],
-        ],
-        extensions: ['.js', '.jsx', '.ts', '.tsx'],
-      },
-    },
-  },
+  plugins: ['@typescript-eslint', 'react-native'],
   overrides: [
     {
       files: ['*.ts', '*.tsx'],
@@ -33,25 +17,6 @@ module.exports = {
           {
             ignoreCase: true,
             ignoreDeclarationSort: true,
-          },
-        ],
-        'import/order': [
-          'error',
-          {
-            'newlines-between': 'always',
-            groups: [
-              'external',
-              'builtin',
-              'internal',
-              'sibling',
-              'parent',
-              'index',
-            ],
-            pathGroups: [
-              {pattern: '@components/**', group: 'internal'},
-              {pattern: '@pages/**', group: 'internal'},
-              {pattern: '@utils/**', group: 'internal', position: 'after'},
-            ],
           },
         ],
         '@typescript-eslint/no-shadow': ['error'],

@@ -1,7 +1,7 @@
 import {Command} from './commands';
 
 export default class Calculator {
-  current: number = 0;
+  current = 0;
 
   constructor(current?: number) {
     this.current = current || 0;

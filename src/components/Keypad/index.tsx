@@ -1,7 +1,8 @@
 import {FlatList, StyleSheet} from 'react-native';
 
-import {buttonValues} from './mock';
 import {KeypadButton} from '@components/KeypadButton';
+
+import {buttonValues} from './mock';
 import {KeypadProps} from './interfaces';
 
 export const Keypad = ({handlePress}: KeypadProps) => {

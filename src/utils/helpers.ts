@@ -1,6 +1,6 @@
 import Calc from './calculator';
 import {sendCommand} from './commands';
-import {OperationTypes, HelperArguments} from './interfaces';
+import {HelperArguments, OperationTypes} from './interfaces';
 
 export const handleParenthesisMode = ({
   buttonValue,
