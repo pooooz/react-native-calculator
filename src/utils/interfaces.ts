@@ -27,7 +27,7 @@ export interface HelperArguments {
   expression: {input: string; value: string};
   expressionDispatch: React.Dispatch<{type: ActionTypes; payload: string}>;
   setIsParenthesis: React.Dispatch<React.SetStateAction<boolean>>;
-  changeHistory: () => void;
+  changeHistory: (expression: string, result: number) => void;
   setCalculator: React.Dispatch<React.SetStateAction<Calc>>;
   currentValue: number;
 }

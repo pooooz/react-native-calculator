@@ -9,7 +9,6 @@ export const expressionReducer = (
         return {...expression, input: action.payload};
       }
       if (action.payload === '.' && /\./gi.test(input)) {
-        console.log('А точка уже есть');
         return {...expression};
       }
       return {...expression, input: input + action.payload};

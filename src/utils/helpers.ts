@@ -42,7 +42,7 @@ export const handleParenthesisMode = ({
               type: 'equals',
               payload: result.toString(),
             });
-            // changeHistory(`${input})`, result);
+            changeHistory(`${input})`, result);
             setCalculator(newCalc);
             return;
           }
@@ -58,10 +58,7 @@ export const handleParenthesisMode = ({
             type: 'equals',
             payload: newCalc.getCurrentValue().toString(),
           });
-          /*changeHistory(
-            `${value}${input})`,
-            newCalc.getCurrentValue(),
-          );*/
+          changeHistory(`${value}${input})`, newCalc.getCurrentValue());
           setCalculator(newCalc);
         } else {
           expressionDispatch({
@@ -100,12 +97,9 @@ export const handlePressHelper = ({
   ) {
     if (value && buttonValue === '=') {
       if (value.indexOf('=') >= 0) {
-        /*changeHistory(
-          value.slice(0, value.indexOf('=')),
-          currentValue,
-        );*/
+        changeHistory(value.slice(0, value.indexOf('=')), currentValue);
       } else {
-        // changeHistory(input, input);
+        changeHistory(input, Number(input));
       }
     } else if (buttonValue === '(') {
       expressionDispatch({type: 'openParenthesis', payload: ''});
@@ -153,7 +147,7 @@ export const handlePressHelper = ({
           type: 'equals',
           payload: newCalc.getCurrentValue().toString(),
         });
-        // changeHistory(historyExpression, newCalc.getCurrentValue());
+        changeHistory(historyExpression, newCalc.getCurrentValue());
         setCalculator(newCalc);
         break;
       }
@@ -190,7 +184,7 @@ export const handlePressHelper = ({
           type: 'command',
           payload: newCalc.getCurrentValue() + buttonValue,
         });
-        // changeHistory(historyExpression, newCalc.getCurrentValue());
+        changeHistory(historyExpression, newCalc.getCurrentValue());
         setCalculator(newCalc);
         break;
       }
