@@ -1,5 +1,5 @@
 import {useEffect, useReducer, useState} from 'react';
-import {StyleSheet, Vibration, View} from 'react-native';
+import {Vibration} from 'react-native';
 
 import {Keypad} from '@components/Keypad';
 import {Display} from '@components/Display';
@@ -14,6 +14,7 @@ import {
 
 import {expressionReducer} from './reducer';
 import {HistoryRecord} from './interfaces';
+import {HomeContainer} from './styled';
 
 export const Home = () => {
   const [history, setHistory] = useState<Array<HistoryRecord>>([]);
@@ -68,18 +69,10 @@ export const Home = () => {
   };
 
   return (
-    <View style={styles.homeContainer}>
+    <HomeContainer>
       <Display expression={expression} />
       <History history={history} />
       <Keypad handlePress={handlePress} />
-    </View>
+    </HomeContainer>
   );
 };
-
-const styles = StyleSheet.create({
-  homeContainer: {
-    flex: 1,
-    justifyContent: 'space-between',
-    backgroundColor: '#000000',
-  },
-});

@@ -1,6 +1,7 @@
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
 import {HistoryRecord} from '@pages/Home/interfaces';
+import {ThemeColors} from '../theme';
 
 export const getCalculationsHistory = async (): Promise<
   Array<HistoryRecord>
@@ -30,3 +31,11 @@ export const setCalculationsHistory = async (history: Array<HistoryRecord>) => {
     }),
   );
 };
+
+export const getTheme = async (): Promise<ThemeColors> => {
+  const attempt = await AsyncStorage.getItem('theme');
+  return attempt as ThemeColors;
+};
+
+export const setTheme = async (currentTheme: ThemeColors) =>
+  await AsyncStorage.setItem('theme', currentTheme);

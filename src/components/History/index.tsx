@@ -1,28 +1,17 @@
 import React from 'react';
-import {FlatList, StyleSheet, Text, View} from 'react-native';
-
-import {HistoryItem} from '@components/HistoryItem';
+import {FlatList} from 'react-native';
 
 import {HistoryProps} from './interfaces';
+import {EmptyPlug, HistoryContainer, HistoryItem} from './styled';
 
 export const History = React.memo(({history}: HistoryProps) => (
-  <View style={styles.container}>
+  <HistoryContainer>
     <FlatList
       data={history}
-      renderItem={({item}) => <HistoryItem record={item} />}
-      ListEmptyComponent={() => (
-        <Text style={styles.emptyPlug}>History is empty!</Text>
+      renderItem={({item}) => (
+        <HistoryItem>{`${item.expression} = ${item.result} `}</HistoryItem>
       )}
+      ListEmptyComponent={() => <EmptyPlug>History is empty!</EmptyPlug>}
     />
-  </View>
+  </HistoryContainer>
 ));
-
-const styles = StyleSheet.create({
-  container: {
-    height: '30%',
-  },
-  emptyPlug: {
-    fontFamily: 'PressStart2P',
-    color: '#7c7c7c',
-  },
-});
