@@ -11,6 +11,7 @@ export const ExpressionInput = styled.TextInput`
   color: ${({theme}) => theme.colors.dim};
   border-bottom-width: ${EXPRESSION_INPUT_BORDER_WIDTH}px;
   border-bottom-color: ${({theme}) => theme.colors.dim};
+  border-style: dashed;
 `;
 
 export const ValueInput = styled.TextInput`

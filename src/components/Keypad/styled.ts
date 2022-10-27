@@ -1,8 +1,10 @@
 import {FlatList} from 'react-native';
 import styled from 'styled-components/native';
 
+const KEYPAD_SEPARATOR_WIDTH = 2;
+
 export const KeypadContainer = styled.View`
-  border-top-width: 2px;
+  border-top-width: ${KEYPAD_SEPARATOR_WIDTH}px;
   border-top-color: ${({theme}) => theme.colors.keypadSeparator};
 `;
 
