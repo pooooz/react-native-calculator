@@ -1,7 +1,12 @@
-import {Heading, SettingsContainer} from '@pages/Settings/styled';
+import {SettingsContainer} from '@pages/Settings/styled';
+import {ThemeSwitcher} from '@components/ThemeSwitcher';
+import {ClearButton} from '@components/ClearButton';
 
-export const Settings = () => (
-  <SettingsContainer>
-    <Heading>Settings page</Heading>
-  </SettingsContainer>
-);
+export const Settings = () => {
+  return (
+    <SettingsContainer>
+      <ThemeSwitcher />
+      <ClearButton />
+    </SettingsContainer>
+  );
+};

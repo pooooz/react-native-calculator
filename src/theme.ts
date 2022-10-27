@@ -1,6 +1,7 @@
 import {DefaultTheme} from 'styled-components';
 
 const light = {
+  text: '#000000',
   dim: '#888888',
   background: '#FFFFFF',
   keypadSeparator: '#32cd32',
@@ -12,6 +13,7 @@ const light = {
 };
 
 const dark = {
+  text: '#FFFFFF',
   dim: '#888888',
   background: '#242424',
   keypadSeparator: '#32cd32',
