@@ -1,12 +1,12 @@
 import styled from 'styled-components/native';
 import {Dimensions} from 'react-native';
 
-const BUTTON_HEIGHT = Dimensions.get('screen').width / 10;
+const BUTTON_HEIGHT = Dimensions.get('screen').width / 9;
 const BORDER_RADIUS = 15;
 const BORDER_WIDTH = 3;
 const BORDER_COLOR = '#e1252c';
 
-export const Button = styled.TouchableHighlight.attrs(({theme}) => ({
+export const Button = styled.TouchableHighlight.attrs(() => ({
   underlayColor: BORDER_COLOR,
 }))`
   height: ${BUTTON_HEIGHT}px;
