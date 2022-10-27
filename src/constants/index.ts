@@ -14,4 +14,9 @@ export const routes = [
   },
 ];
 
-export const colors: Array<ThemeColors> = ['light', 'dark'];
+export const colors: Array<ThemeColors> = [
+  'light',
+  'disco',
+  'dark',
+  'ultraviolet',
+];

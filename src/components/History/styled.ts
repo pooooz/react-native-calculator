@@ -4,6 +4,7 @@ const HISTORY_HEIGHT = 30;
 
 export const HistoryContainer = styled.View`
   height: ${HISTORY_HEIGHT}%;
+  padding: 0 ${({theme}) => theme.spaces.m}px;
 `;
 
 export const HistoryItem = styled.Text`

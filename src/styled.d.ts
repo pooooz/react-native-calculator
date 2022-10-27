@@ -12,6 +12,7 @@ declare module 'styled-components' {
       clearButton: string;
       equal: string;
       historyItem: string;
+      barIndicator: string;
     };
     fontSizes: {
       s: number;

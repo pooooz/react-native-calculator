@@ -12,7 +12,7 @@ export const Navigator = styled(Tab.Navigator).attrs(({theme}) => ({
       fontFamily: 'PressStart2P',
       color: theme.colors.digitButton,
     },
-    tabBarIndicatorStyle: {backgroundColor: theme.colors.dim},
+    tabBarIndicatorStyle: {backgroundColor: theme.colors.barIndicator},
   },
 }))``;
 
