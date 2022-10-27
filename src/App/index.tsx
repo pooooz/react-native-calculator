@@ -1,13 +1,13 @@
 import React, {useEffect, useMemo, useState} from 'react';
 import {Appearance} from 'react-native';
 import {ThemeProvider} from 'styled-components/native';
-
-import {Home} from '@pages/Home';
+import {NavigationContainer} from '@react-navigation/native';
 
 import {getTheme, setTheme} from '@utils/asyncStorage';
 import {ThemePreferenceContext} from '@utils/context';
 
-import {getColoredTheme, ThemeColors} from './src/theme';
+import {getColoredTheme, ThemeColors} from '../theme';
+import {AppNavigation} from './AppNavigation';
 
 export const App = () => {
   const [currentTheme, setCurrentTheme] = useState<ThemeColors>('light');
@@ -32,7 +32,9 @@ export const App = () => {
   return (
     <ThemePreferenceContext.Provider value={themeContextProviderValue}>
       <ThemeProvider theme={theme}>
-        <Home />
+        <NavigationContainer>
+          <AppNavigation />
+        </NavigationContainer>
       </ThemeProvider>
     </ThemePreferenceContext.Provider>
   );

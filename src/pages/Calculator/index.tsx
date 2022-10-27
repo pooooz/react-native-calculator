@@ -14,9 +14,9 @@ import {
 
 import {expressionReducer} from './reducer';
 import {HistoryRecord} from './interfaces';
-import {HomeContainer} from './styled';
+import {CalculatorContainer} from './styled';
 
-export const Home = () => {
+export const Calculator = () => {
   const [history, setHistory] = useState<Array<HistoryRecord>>([]);
 
   const [calculator, setCalculator] = useState(new Calc(0));
@@ -69,10 +69,10 @@ export const Home = () => {
   };
 
   return (
-    <HomeContainer>
+    <CalculatorContainer>
       <Display expression={expression} />
       <History history={history} />
       <Keypad handlePress={handlePress} />
-    </HomeContainer>
+    </CalculatorContainer>
   );
 };
