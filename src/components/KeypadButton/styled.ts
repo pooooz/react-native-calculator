@@ -1,23 +1,41 @@
 import styled, {css} from 'styled-components/native';
 import {Dimensions} from 'react-native';
 
-const windowWidth = Dimensions.get('screen').width;
-const buttonSize = windowWidth / 5;
+import {ButtonProps, ButtonValueProps} from './interfaces';
 
-export const CustomButton = styled.TouchableHighlight`
+const buttonSize = Dimensions.get('screen').width / 5.1;
+const ROUND_BORDER = buttonSize / 2;
+
+export const Button = styled.TouchableHighlight.attrs<ButtonProps>(
+  ({theme, isEqual}) => ({
+    underlayColor: isEqual ? theme.colors.digitButton : theme.colors.dim,
+  }),
+)<ButtonProps>`
   width: ${buttonSize}px;
   height: ${buttonSize}px;
   justify-content: center;
   align-items: center;
+  ${({theme, isEqual}) => {
+    if (isEqual) {
+      return css`
+        background-color: ${theme.colors.equal};
+        border-radius: ${ROUND_BORDER}px;
+      `;
+    }
+  }}
 `;
 
-interface ButtonValueProps {
-  children: string;
-}
-export const ButtonValue = styled.Text<ButtonValueProps>`
+export const Value = styled.Text<ButtonValueProps>`
   font-family: PressStart2P;
-  ${({theme, children}) =>
-    /\d/.test(children)
+  ${({theme, children}) => {
+    if (children === '=') {
+      return css`
+        margin-top: ${theme.spaces.m}px;
+        color: ${theme.colors.text};
+        font-size: ${theme.fontSizes.l}px;
+      `;
+    }
+    return /\d/.test(children)
       ? css`
           color: ${theme.colors.digitButton};
           font-size: ${theme.fontSizes.l}px;
@@ -25,5 +43,6 @@ export const ButtonValue = styled.Text<ButtonValueProps>`
       : css`
           color: ${theme.colors.operationButton};
           font-size: ${theme.fontSizes.m}px;
-        `}
+        `;
+  }}}
 `;

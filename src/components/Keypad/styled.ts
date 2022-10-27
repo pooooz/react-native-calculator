@@ -4,6 +4,7 @@ import styled from 'styled-components/native';
 const KEYPAD_SEPARATOR_WIDTH = 2;
 
 export const KeypadContainer = styled.View`
+  padding: 0 ${KEYPAD_SEPARATOR_WIDTH}px;
   border-top-width: ${KEYPAD_SEPARATOR_WIDTH}px;
   border-top-color: ${({theme}) => theme.colors.keypadSeparator};
 `;

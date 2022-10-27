@@ -3,7 +3,7 @@ import React from 'react';
 import {ThemeColors} from '@theme';
 import {capitalize} from '@utils/helpers';
 
-import {ButtonValue, ChangeButton} from './styled';
+import {ChangeButton, Value} from './styled';
 
 interface ThemeSwitcherItemProps {
   item: string;
@@ -24,7 +24,7 @@ export const SwitchItem = ({
 
   return (
     <ChangeButton onPress={handleOnPress} isSelected={item === currentTheme}>
-      <ButtonValue>{capitalize(item)} theme</ButtonValue>
+      <Value>{capitalize(item)} theme</Value>
     </ChangeButton>
   );
 };

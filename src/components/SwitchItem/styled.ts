@@ -1,9 +1,7 @@
 import styled from 'styled-components/native';
 import {Dimensions} from 'react-native';
 
-interface ChangeButtonProps {
-  isSelected: boolean;
-}
+import {ChangeButtonProps} from './interfaces';
 
 const BUTTON_HEIGHT = Dimensions.get('screen').height / 15;
 
@@ -18,7 +16,7 @@ export const ChangeButton = styled.TouchableHighlight.attrs(({theme}) => ({
   justify-content: center;
 `;
 
-export const ButtonValue = styled.Text`
+export const Value = styled.Text`
   font-family: PressStart2P;
   color: ${({theme}) => theme.colors.text};
 `;
