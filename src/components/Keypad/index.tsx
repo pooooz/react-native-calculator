@@ -1,14 +1,13 @@
-import {FlatList, StyleSheet, View} from 'react-native';
-
 import {KeypadButton} from '@components/KeypadButton';
 
 import {buttonValues} from './mock';
 import {KeypadProps} from './interfaces';
+import {KeypadContainer, List} from './styled';
 
 export const Keypad = ({handlePress}: KeypadProps) => {
   return (
-    <View style={styles.listContainer}>
-      <FlatList
+    <KeypadContainer>
+      <List
         data={buttonValues}
         renderItem={({item}) => (
           <KeypadButton handlePress={handlePress(item)}>{item}</KeypadButton>
@@ -16,18 +15,7 @@ export const Keypad = ({handlePress}: KeypadProps) => {
         keyExtractor={item => item}
         horizontal={false}
         numColumns={5}
-        columnWrapperStyle={styles.list}
       />
-    </View>
+    </KeypadContainer>
   );
 };
-
-const styles = StyleSheet.create({
-  listContainer: {
-    borderTopWidth: 2,
-    borderTopColor: '#32cd32',
-  },
-  list: {
-    justifyContent: 'space-between',
-  },
-});
