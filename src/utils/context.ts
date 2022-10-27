@@ -1,5 +1,6 @@
 import React from 'react';
-import {ThemeColors} from '../theme';
+
+import {ThemeColors} from '@theme';
 
 interface ThemePreference {
   currentTheme: ThemeColors;

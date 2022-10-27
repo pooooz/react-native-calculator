@@ -1,6 +1,5 @@
 import styled from 'styled-components/native';
 
-const WHITE = '#FFFFFF';
 const EXPRESSION_INPUT_BORDER_WIDTH = 1;
 
 export const ExpressionInput = styled.TextInput`
@@ -20,5 +19,5 @@ export const ValueInput = styled.TextInput`
   font-family: PressStart2P;
   font-size: ${({theme}) => theme.fontSizes.l}px;
   text-align: right;
-  color: ${WHITE};
+  color: ${({theme}) => theme.colors.text};
 `;

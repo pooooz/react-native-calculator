@@ -1,5 +1,6 @@
-import {useEffect, useReducer, useState} from 'react';
+import React, {useReducer, useState} from 'react';
 import {Vibration} from 'react-native';
+import {useFocusEffect} from '@react-navigation/native';
 
 import {Keypad} from '@components/Keypad';
 import {Display} from '@components/Display';
@@ -27,11 +28,13 @@ export const Calculator = () => {
     value: '0',
   });
 
-  useEffect(() => {
-    getCalculationsHistory().then(data => {
-      setHistory(data);
-    });
-  }, []);
+  useFocusEffect(
+    React.useCallback(() => {
+      getCalculationsHistory().then(data => {
+        setHistory(data);
+      });
+    }, []),
+  );
 
   const changeHistory = async (exp: string, res: number) => {
     const newHistory = [...(history as Array<HistoryRecord>)];

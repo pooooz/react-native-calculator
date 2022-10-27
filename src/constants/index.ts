@@ -1,6 +1,8 @@
 import {Calculator} from '@pages/Calculator';
 import {Settings} from '@pages/Settings';
 
+import {ThemeColors} from '@theme';
+
 export const routes = [
   {
     name: 'Home',
@@ -11,3 +13,5 @@ export const routes = [
     component: Settings,
   },
 ];
+
+export const colors: Array<ThemeColors> = ['light', 'dark'];
