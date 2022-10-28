@@ -2,6 +2,7 @@ import React, {useEffect, useMemo, useState} from 'react';
 import {Appearance} from 'react-native';
 import {ThemeProvider} from 'styled-components/native';
 import {NavigationContainer} from '@react-navigation/native';
+import SplashScreen from 'react-native-splash-screen';
 
 import {getTheme, setTheme} from '@utils/asyncStorage';
 import {ThemePreferenceContext} from '@utils/context';
@@ -21,6 +22,7 @@ export const App = () => {
     getTheme().then(theme => {
       setCurrentTheme(theme || Appearance.getColorScheme());
     });
+    SplashScreen.hide();
   }, []);
 
   useEffect(() => {
