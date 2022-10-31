@@ -1,5 +1,4 @@
 import React, {useReducer, useState} from 'react';
-import {Vibration} from 'react-native';
 import {useFocusEffect} from '@react-navigation/native';
 
 import {Keypad} from '@components/Keypad';
@@ -44,13 +43,6 @@ export const Calculator = () => {
   };
 
   const handlePress = (buttonValue: string) => () => {
-    switch (buttonValue) {
-      case '=':
-        Vibration.vibrate(100);
-        break;
-      default:
-        Vibration.vibrate(1);
-    }
     const helperArguments = {
       buttonValue,
       expression,
