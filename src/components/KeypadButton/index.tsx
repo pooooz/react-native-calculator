@@ -1,8 +1,23 @@
+import {Vibration} from 'react-native';
+
 import {KeypadButtonProps} from './interfaces';
 import {Button, Value} from './styled';
 
-export const KeypadButton = ({handlePress, children}: KeypadButtonProps) => (
-  <Button onPress={handlePress} isEqual={children === '='}>
-    <Value>{children}</Value>
-  </Button>
-);
+export const KeypadButton = ({handlePress, children}: KeypadButtonProps) => {
+  const handleVibration = () => {
+    if (children === '=') {
+      Vibration.vibrate(100);
+      return;
+    }
+    Vibration.vibrate(1);
+  };
+
+  return (
+    <Button
+      onPressIn={handleVibration}
+      onPress={handlePress}
+      isEqual={children === '='}>
+      <Value>{children}</Value>
+    </Button>
+  );
+};
