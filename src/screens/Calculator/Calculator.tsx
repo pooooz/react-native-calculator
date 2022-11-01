@@ -5,21 +5,22 @@ import {Keypad} from '@components/Keypad';
 import {Display} from '@components/Display';
 import {History} from '@components/History';
 
-import Calc from '@utils/calculator';
-import {handleParenthesisMode, handlePressHelper} from '@utils/helpers';
+import CalculationsCore from '@utils/calculator';
+import {parenthesisModeHelper, pressHelper} from '@utils/helpers';
 import {
   getCalculationsHistory,
   setCalculationsHistory,
 } from '@utils/asyncStorage';
 
+import {HistoryRecord} from '@types';
+
 import {expressionReducer} from './reducer';
-import {HistoryRecord} from './interfaces';
 import {CalculatorContainer} from './styled';
 
 export const Calculator = () => {
   const [history, setHistory] = useState<Array<HistoryRecord>>([]);
 
-  const [calculator, setCalculator] = useState(new Calc(0));
+  const [calculator, setCalculator] = useState(new CalculationsCore(0));
   const [isParenthesis, setIsParenthesis] = useState(false);
 
   const [expression, expressionDispatch] = useReducer(expressionReducer, {
@@ -38,7 +39,7 @@ export const Calculator = () => {
   const changeHistory = async (exp: string, res: number) => {
     const newHistory = [...(history as Array<HistoryRecord>)];
     newHistory.unshift({expression: exp, result: res});
-    await setCalculationsHistory(newHistory);
+    setCalculationsHistory(newHistory);
     setHistory(newHistory);
   };
 
@@ -57,10 +58,10 @@ export const Calculator = () => {
       if (buttonValue === '+/-' || buttonValue === '=') {
         return;
       }
-      handleParenthesisMode(helperArguments);
+      parenthesisModeHelper(helperArguments);
       return;
     }
-    handlePressHelper(helperArguments);
+    pressHelper(helperArguments);
   };
 
   return (

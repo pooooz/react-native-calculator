@@ -4,14 +4,15 @@ import {ThemeProvider} from 'styled-components/native';
 import {NavigationContainer} from '@react-navigation/native';
 import SplashScreen from 'react-native-splash-screen';
 
+import {Navigator} from '@components/Navigator';
+
 import {getTheme, setTheme} from '@utils/asyncStorage';
 import {ThemePreferenceContext} from '@utils/context';
 
-import {getColoredTheme, ThemeColors} from '../theme';
-import {AppNavigation} from './AppNavigation';
+import {getColoredTheme} from '@theme';
 
 export const App = () => {
-  const [currentTheme, setCurrentTheme] = useState<ThemeColors>('light');
+  const [currentTheme, setCurrentTheme] = useState<ThemeNames>('light');
 
   const themeContextProviderValue = useMemo(
     () => ({currentTheme, setCurrentTheme}),
@@ -35,7 +36,7 @@ export const App = () => {
     <ThemePreferenceContext.Provider value={themeContextProviderValue}>
       <ThemeProvider theme={theme}>
         <NavigationContainer>
-          <AppNavigation />
+          <Navigator />
         </NavigationContainer>
       </ThemeProvider>
     </ThemePreferenceContext.Provider>

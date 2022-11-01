@@ -1,7 +1,6 @@
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
-import {HistoryRecord} from '@pages/Calculator/interfaces';
-import {ThemeColors} from '../theme';
+import {HistoryRecord, ThemeNames} from '@types';
 
 export const getCalculationsHistory = async (): Promise<
   Array<HistoryRecord>

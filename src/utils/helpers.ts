@@ -2,7 +2,7 @@ import Calc from './calculator';
 import {sendCommand} from './commands';
 import {HelperArguments, OperationTypes} from './interfaces';
 
-export const handleParenthesisMode = ({
+export const parenthesisModeHelper = ({
   buttonValue,
   expression,
   expressionDispatch,
@@ -76,7 +76,7 @@ export const handleParenthesisMode = ({
   }
 };
 
-export const handlePressHelper = ({
+export const pressHelper = ({
   buttonValue,
   expression,
   expressionDispatch,

@@ -3,7 +3,7 @@ import styled from 'styled-components/native';
 
 const Tab = createMaterialTopTabNavigator();
 
-export const Navigator = styled(Tab.Navigator).attrs(({theme}) => ({
+export const StyledTabNavigator = styled(Tab.Navigator).attrs(({theme}) => ({
   screenOptions: {
     tabBarStyle: {
       backgroundColor: theme.colors.background,

@@ -1,6 +1,8 @@
 import {DefaultTheme} from 'styled-components';
 
-const light = {
+import {ThemeColors, ThemeNames, ThemeScaleValues} from '@types';
+
+const light: ThemeColors = {
   text: '#000000',
   dim: '#888888',
   background: '#FFFFFF',
@@ -13,7 +15,7 @@ const light = {
   barIndicator: '#1a64e5',
 };
 
-const dark = {
+const dark: ThemeColors = {
   text: '#FFFFFF',
   dim: '#888888',
   background: '#242424',
@@ -26,7 +28,7 @@ const dark = {
   barIndicator: '#888888',
 };
 
-const ultraviolet = {
+const ultraviolet: ThemeColors = {
   text: '#FFFFFF',
   dim: '#888888',
   background: '#242424',
@@ -39,7 +41,7 @@ const ultraviolet = {
   barIndicator: '#4D38FC',
 };
 
-const disco = {
+const disco: ThemeColors = {
   text: '#FFD476',
   dim: '#888888',
   background: '#FDF6E3',
@@ -52,31 +54,29 @@ const disco = {
   barIndicator: '#6A1B1B',
 };
 
-const colors = {
-  light,
-  disco,
-  dark,
-  ultraviolet,
-};
+const colors = new Map<ThemeNames, ThemeColors>([
+  ['light', light],
+  ['disco', disco],
+  ['dark', dark],
+  ['ultraviolet', ultraviolet],
+]);
 
-export const fontSizes = {
+export const fontSizes: ThemeScaleValues = {
   s: 16,
   m: 18,
   l: 24,
   xl: 32,
 };
 
-export const spaces = {
+export const spaces: ThemeScaleValues = {
   s: 5,
   m: 8,
   l: 16,
   xl: 24,
 };
 
-export const getColoredTheme = (currentTheme: ThemeColors): DefaultTheme => ({
-  colors: colors[currentTheme],
+export const getColoredTheme = (currentTheme: ColorNames): DefaultTheme => ({
+  colors: colors.get(currentTheme) as ColorNames,
   fontSizes,
   spaces,
 });
-
-export type ThemeColors = keyof typeof colors;

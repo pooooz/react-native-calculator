@@ -1,20 +1,6 @@
-import {Calculator} from '@pages/Calculator';
-import {Settings} from '@pages/Settings';
+import {ThemeNames} from '@types';
 
-import {ThemeColors} from '@theme';
-
-export const routes = [
-  {
-    name: 'Home',
-    component: Calculator,
-  },
-  {
-    name: 'Settings',
-    component: Settings,
-  },
-];
-
-export const colors: Array<ThemeColors> = [
+export const colors: Array<ThemeNames> = [
   'light',
   'disco',
   'dark',

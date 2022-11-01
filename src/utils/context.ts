@@ -1,10 +1,10 @@
 import React from 'react';
 
-import {ThemeColors} from '@theme';
+import {ThemeNames} from '@types';
 
 interface ThemePreference {
-  currentTheme: ThemeColors;
-  setCurrentTheme: React.Dispatch<React.SetStateAction<ThemeColors>>;
+  currentTheme: ThemeNames;
+  setCurrentTheme: React.Dispatch<React.SetStateAction<ThemeNames>>;
 }
 
 export const ThemePreferenceContext =

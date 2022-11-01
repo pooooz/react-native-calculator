@@ -1,6 +1,6 @@
 import React from 'react';
 
-import Calc from './calculator';
+import CalculatorCore from './calculator';
 
 export enum OperationTypes {
   Add = '+',
@@ -28,6 +28,6 @@ export interface HelperArguments {
   expressionDispatch: React.Dispatch<{type: ActionTypes; payload: string}>;
   setIsParenthesis: React.Dispatch<React.SetStateAction<boolean>>;
   changeHistory: (expression: string, result: number) => void;
-  setCalculator: React.Dispatch<React.SetStateAction<Calc>>;
+  setCalculator: React.Dispatch<React.SetStateAction<CalculatorCore>>;
   currentValue: number;
 }

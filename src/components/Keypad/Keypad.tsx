@@ -1,8 +1,8 @@
-import {KeypadButton} from '@components/KeypadButton';
-
 import {buttonValues} from './mock';
 import {KeypadProps} from './interfaces';
 import {KeypadContainer, List} from './styled';
+
+import {KeypadButton} from './components/KeypadButton';
 
 export const Keypad = ({handlePress}: KeypadProps) => {
   return (

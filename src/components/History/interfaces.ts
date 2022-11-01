@@ -1,4 +1,4 @@
-import {HistoryRecord} from '@pages/Calculator/interfaces';
+import {HistoryRecord} from '@types';
 
 export interface HistoryProps {
   history: Array<HistoryRecord>;

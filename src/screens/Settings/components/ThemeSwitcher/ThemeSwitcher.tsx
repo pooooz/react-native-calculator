@@ -3,7 +3,8 @@ import {FlatList} from 'react-native';
 
 import {colors} from '@constants';
 import {ThemePreferenceContext} from '@utils/context';
-import {SwitchItem} from '@components/SwitchItem';
+
+import {SwitchItem} from './components/SwitchItem';
 
 import {Heading, ThemeSwitcherContainer} from './styled';
 
