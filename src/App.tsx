@@ -11,6 +11,8 @@ import {ThemePreferenceContext} from '@utils/context';
 
 import {getColoredTheme} from '@theme';
 
+import {ThemeNames} from 'types/index';
+
 export const App = () => {
   const [currentTheme, setCurrentTheme] = useState<ThemeNames>('light');
 

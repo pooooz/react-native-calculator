@@ -1,4 +1,4 @@
-import {ThemeNames} from '@types';
+import {ThemeNames} from 'types/index';
 
 export const colors: Array<ThemeNames> = [
   'light',

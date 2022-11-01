@@ -12,7 +12,7 @@ import {
   setCalculationsHistory,
 } from '@utils/asyncStorage';
 
-import {HistoryRecord} from '@types';
+import {HistoryRecord} from 'types/index';
 
 import {expressionReducer} from './reducer';
 import {CalculatorContainer} from './styled';
@@ -37,7 +37,7 @@ export const Calculator = () => {
   );
 
   const changeHistory = async (exp: string, res: number) => {
-    const newHistory = [...(history as Array<HistoryRecord>)];
+    const newHistory = [...history];
     newHistory.unshift({expression: exp, result: res});
     setCalculationsHistory(newHistory);
     setHistory(newHistory);

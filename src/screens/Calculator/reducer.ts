@@ -75,10 +75,7 @@ export const expressionReducer = (
       };
     }
     case 'parenthesisMode': {
-      if (
-        action.payload === '(' &&
-        /\d/.test(input[input.length - 1] as string)
-      ) {
+      if (action.payload === '(' && /\d/.test(input[input.length - 1])) {
         return {
           input: input,
           value: value,
@@ -108,7 +105,7 @@ export const expressionReducer = (
       }
       if (
         action.payload !== '(' &&
-        (/\d/.test(input[input.length - 1] as string) ||
+        (/\d/.test(input[input.length - 1]) ||
           input[input.length - 1] === ')' ||
           input[input.length - 1] === '(')
       ) {
@@ -117,10 +114,7 @@ export const expressionReducer = (
           value: value,
         };
       }
-      if (
-        action.payload === '(' &&
-        !/\d/.test(input[input.length - 1] as string)
-      ) {
+      if (action.payload === '(' && !/\d/.test(input[input.length - 1])) {
         return {
           input: input + action.payload,
           value: value,

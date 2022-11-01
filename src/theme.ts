@@ -1,6 +1,6 @@
 import {DefaultTheme} from 'styled-components';
 
-import {ThemeColors, ThemeNames, ThemeScaleValues} from '@types';
+import {ThemeColors, ThemeNames, ThemeScaleValues} from 'types/index';
 
 const light: ThemeColors = {
   text: '#000000',
@@ -75,8 +75,8 @@ export const spaces: ThemeScaleValues = {
   xl: 24,
 };
 
-export const getColoredTheme = (currentTheme: ColorNames): DefaultTheme => ({
-  colors: colors.get(currentTheme) as ColorNames,
+export const getColoredTheme = (currentTheme: ThemeNames): DefaultTheme => ({
+  colors: colors.get(currentTheme) || dark,
   fontSizes,
   spaces,
 });

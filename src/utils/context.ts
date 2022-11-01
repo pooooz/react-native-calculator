@@ -1,6 +1,6 @@
 import React from 'react';
 
-import {ThemeNames} from '@types';
+import {ThemeNames} from 'types/index';
 
 interface ThemePreference {
   currentTheme: ThemeNames;
