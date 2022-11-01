@@ -1,5 +1,5 @@
-import styled, {css} from 'styled-components/native';
 import {Dimensions} from 'react-native';
+import styled, {css} from 'styled-components/native';
 
 import {ButtonProps, ButtonValueProps} from './interfaces';
 

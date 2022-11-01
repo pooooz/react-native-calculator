@@ -1,5 +1,5 @@
-import styled from 'styled-components/native';
 import {Dimensions} from 'react-native';
+import styled from 'styled-components/native';
 
 const BUTTON_HEIGHT = Dimensions.get('screen').width / 9;
 const BORDER_RADIUS = 15;

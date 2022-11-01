@@ -1,5 +1,4 @@
 import {routes} from './routes';
-
 import {Screen, StyledTabNavigator} from './styled';
 
 export const Navigator = () => {

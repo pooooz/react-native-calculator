@@ -4,9 +4,30 @@ module.exports = {
     '@react-native-community',
     'plugin:@typescript-eslint/eslint-recommended',
     'plugin:@typescript-eslint/recommended',
+    'plugin:import/errors',
+    'plugin:import/warnings',
   ],
   parser: '@typescript-eslint/parser',
-  plugins: ['@typescript-eslint', 'react-native', 'detox', 'jest'],
+  plugins: ['@typescript-eslint', 'react-native', 'detox', 'jest', 'import'],
+  settings: {
+    'import/resolver': {
+      node: {
+        extensions: ['.js', '.jsx', '.ts', '.tsx'],
+      },
+      alias: {
+        map: [
+          ['@components', './src/components'],
+          ['@screens', './src/screens'],
+          ['@utils', './src/utils'],
+          ['@constants', './src/constants'],
+          ['@theme', './src/theme'],
+          ['types', './src/types'],
+        ],
+        extensions: ['.js', '.jsx', '.ts', '.tsx'],
+      },
+    },
+    'import/ignore': ['react-native'],
+  },
   overrides: [
     {
       files: ['*.e2e.js'],
@@ -24,6 +45,54 @@ module.exports = {
           {
             ignoreCase: true,
             ignoreDeclarationSort: true,
+          },
+        ],
+        'import/order': [
+          'error',
+          {
+            'newlines-between': 'always',
+            groups: [
+              'builtin',
+              'external',
+              'internal',
+              'sibling',
+              'parent',
+              'index',
+            ],
+            pathGroups: [
+              {
+                pattern: '@components/**',
+                group: 'internal',
+              },
+              {
+                pattern: '@screens/**',
+                group: 'internal',
+              },
+              {
+                pattern: '@constants/**',
+                group: 'internal',
+              },
+              {
+                pattern: '@utils/**',
+                group: 'internal',
+                position: 'after',
+              },
+              {
+                pattern: '@theme',
+                group: 'internal',
+                position: 'after',
+              },
+              {
+                pattern: 'types/**',
+                group: 'internal',
+                position: 'after',
+              },
+              {
+                pattern: './components/**',
+                group: 'sibling',
+                position: 'after',
+              },
+            ],
           },
         ],
         '@typescript-eslint/no-shadow': ['error'],
