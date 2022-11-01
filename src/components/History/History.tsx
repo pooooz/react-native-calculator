@@ -9,7 +9,7 @@ export const History = React.memo(({history}: HistoryProps) => (
     <FlatList
       data={history}
       renderItem={({item}) => (
-        <HistoryItem>{`${item.expression} = ${item.result} `}</HistoryItem>
+        <HistoryItem>{`${item.expression} = ${item.result}`}</HistoryItem>
       )}
       ListEmptyComponent={() => <EmptyPlug>History is empty!</EmptyPlug>}
     />

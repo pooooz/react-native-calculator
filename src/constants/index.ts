@@ -6,3 +6,10 @@ export const colors: Array<ThemeNames> = [
   'dark',
   'ultraviolet',
 ];
+
+export const testIds = {
+  calculatorContainer: 'calculatorContainer',
+  settingsContainer: 'settingsContainer',
+  expressionInput: 'expressionInput',
+  valueInput: 'valueInput',
+};
