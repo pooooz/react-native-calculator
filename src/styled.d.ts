@@ -1,30 +1,11 @@
 import 'styled-components';
 
+import {ThemeColors, ThemeScaleValues} from 'types/index';
+
 declare module 'styled-components' {
   export interface DefaultTheme {
-    colors: {
-      text: string;
-      dim: string;
-      background: string;
-      keypadSeparator: string;
-      digitButton: string;
-      operationButton: string;
-      clearButton: string;
-      equal: string;
-      historyItem: string;
-      barIndicator: string;
-    };
-    fontSizes: {
-      s: number;
-      m: number;
-      l: number;
-      xl: number;
-    };
-    spaces: {
-      s: number;
-      m: number;
-      l: number;
-      xl: number;
-    };
+    colors: ThemeColors;
+    fontSizes: ThemeScaleValues;
+    spaces: ThemeScaleValues;
   }
 }
