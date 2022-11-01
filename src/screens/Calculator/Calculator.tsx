@@ -1,5 +1,5 @@
-import React, {useReducer, useState} from 'react';
-import {useFocusEffect} from '@react-navigation/native';
+import React, {useEffect, useReducer, useState} from 'react';
+import {useIsFocused} from '@react-navigation/native';
 
 import {Keypad} from '@components/Keypad';
 import {Display} from '@components/Display';
@@ -23,18 +23,18 @@ export const Calculator = () => {
   const [calculator, setCalculator] = useState(new CalculationsCore(0));
   const [isParenthesis, setIsParenthesis] = useState(false);
 
+  const isFocused = useIsFocused();
+
   const [expression, expressionDispatch] = useReducer(expressionReducer, {
     input: '0',
     value: '0',
   });
 
-  useFocusEffect(
-    React.useCallback(() => {
-      getCalculationsHistory().then(data => {
-        setHistory(data);
-      });
-    }, []),
-  );
+  useEffect(() => {
+    getCalculationsHistory().then(data => {
+      setHistory(data);
+    });
+  }, [isFocused]);
 
   const changeHistory = async (exp: string, res: number) => {
     const newHistory = [...history];
