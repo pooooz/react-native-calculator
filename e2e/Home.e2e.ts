@@ -146,11 +146,10 @@ describe('Exceptions', () => {
       '+',
       '3',
       ')',
-      ')',
     ];
 
     await pressButtonArray(buttonValues);
 
-    await expect(element(by.id(testIds.valueInput))).toHaveText('((6-1)');
+    await expect(element(by.id(testIds.valueInput))).toHaveText('8');
   });
 });
