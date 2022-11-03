@@ -1,6 +1,8 @@
 import {useEffect, useState} from 'react';
 import {useIsFocused} from '@react-navigation/native';
 
+import {testIds} from '@constants';
+
 import {
   getButtonsAssembleFlag,
   setButtonsAssembleFlag,
@@ -29,7 +31,8 @@ export const ButtonsAssembleSwitcher = () => {
   };
 
   return (
-    <ButtonsAssembleSwitcherContainer>
+    <ButtonsAssembleSwitcherContainer
+      testID={testIds.buttonAssemblingSwitcherContainer}>
       <SwitcherLabel onPress={handleValueChange}>
         Should assemble buttons?
       </SwitcherLabel>

@@ -14,4 +14,5 @@ export const testIds = {
   valueInput: 'valueInput',
   clearButton: 'clearButton',
   themeSwitcherContainer: 'themeSwitcherContainer',
+  buttonAssemblingSwitcherContainer: 'buttonAssemblingSwitcherContainer',
 };
