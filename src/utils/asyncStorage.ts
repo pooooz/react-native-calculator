@@ -6,7 +6,7 @@ export const getCalculationsHistory = async (): Promise<
   Array<HistoryRecord>
 > => {
   const attempt = await AsyncStorage.getItem('history');
-  return JSON.parse(attempt || '');
+  return JSON.parse(attempt || '[]');
 };
 
 export const setCalculationsHistory = async (history: Array<HistoryRecord>) => {
@@ -35,3 +35,12 @@ export const getTheme = async (): Promise<ThemeNames> => {
 
 export const setTheme = async (currentTheme: ThemeNames) =>
   await AsyncStorage.setItem('theme', currentTheme);
+
+export const getButtonsAssembleFlag = async (): Promise<boolean> => {
+  const attempt = await AsyncStorage.getItem('shouldAssembleButtons');
+  return JSON.parse(attempt || 'false');
+};
+
+export const setButtonsAssembleFlag = async (flag: boolean) => {
+  await AsyncStorage.setItem('shouldAssembleButtons', JSON.stringify(flag));
+};

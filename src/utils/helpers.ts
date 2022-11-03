@@ -205,3 +205,18 @@ export const pressHelper = ({
 
 export const capitalize = (str: string) =>
   `${str[0].toUpperCase()}${str.slice(1)}`;
+
+export const getRandomNumber = (min: number, max: number) => {
+  return Math.floor(Math.random() * (max - min + 1) + min);
+};
+
+export const getRandomNumberSign = () => {
+  return Math.random() < 0.5;
+};
+
+export const getRandomCoords = (width: number, height: number) => {
+  return {
+    x: getRandomNumber(getRandomNumberSign() ? width : -width, 1.5 * width),
+    y: getRandomNumber(getRandomNumberSign() ? height : -height, 1.5 * height),
+  };
+};
