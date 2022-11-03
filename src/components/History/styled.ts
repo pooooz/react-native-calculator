@@ -1,8 +1,9 @@
+import {Animated} from 'react-native';
 import styled from 'styled-components/native';
 
 const HISTORY_HEIGHT = 30;
 
-export const HistoryContainer = styled.View`
+export const HistoryContainer = styled(Animated.View)`
   height: ${HISTORY_HEIGHT}%;
   padding: 0 ${({theme}) => theme.spaces.m}px;
 `;

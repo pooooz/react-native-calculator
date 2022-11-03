@@ -100,6 +100,7 @@ module.exports = {
         'no-undef': 'off',
         'react/react-in-jsx-scope': 0,
         'no-eval': 0,
+        'react-hooks/exhaustive-deps': 0,
       },
     },
   ],
