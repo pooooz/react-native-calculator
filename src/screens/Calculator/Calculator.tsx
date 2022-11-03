@@ -4,6 +4,7 @@ import {useIsFocused} from '@react-navigation/native';
 import {Keypad} from '@components/Keypad';
 import {Display} from '@components/Display';
 import {History} from '@components/History';
+import {testIds} from '@constants';
 
 import CalculationsCore from '@utils/calculator';
 import {parenthesisModeHelper, pressHelper} from '@utils/helpers';
@@ -65,7 +66,7 @@ export const Calculator = () => {
   };
 
   return (
-    <CalculatorContainer>
+    <CalculatorContainer testID={testIds.calculatorContainer}>
       <Display expression={expression} />
       <History history={history} />
       <Keypad handlePress={handlePress} />

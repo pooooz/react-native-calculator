@@ -16,7 +16,8 @@ export const KeypadButton = ({handlePress, children}: KeypadButtonProps) => {
     <Button
       onPressIn={handleVibration}
       onPress={handlePress}
-      isEqual={children === '='}>
+      isEqual={children === '='}
+      testID={children}>
       <Value>{children}</Value>
     </Button>
   );

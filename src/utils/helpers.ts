@@ -60,16 +60,20 @@ export const parenthesisModeHelper = ({
           });
           changeHistory(`${value}${input})`, newCalc.getCurrentValue());
           setCalculator(newCalc);
-        } else {
-          expressionDispatch({
-            type: 'parenthesisMode',
-            payload: buttonValue,
-          });
+
+          break;
         }
+        expressionDispatch({
+          type: 'parenthesisMode',
+          payload: buttonValue,
+        });
+
         break;
       }
-
       default: {
+        if (input[input.length - 1] === ')' && buttonValue === '(') {
+          return;
+        }
         expressionDispatch({type: 'parenthesisMode', payload: buttonValue});
       }
     }
@@ -86,9 +90,14 @@ export const pressHelper = ({
   currentValue,
 }: HelperArguments) => {
   const {value, input} = expression;
+  if (!value.includes('(') && buttonValue === ')') {
+    return;
+  }
   if (/\d/.test(buttonValue) || buttonValue === '.') {
     expressionDispatch({type: 'number', payload: buttonValue});
-  } else if (
+    return;
+  }
+  if (
     ((!value || value === '0') &&
       buttonValue !== '+/-' &&
       buttonValue !== 'C' &&
@@ -101,7 +110,9 @@ export const pressHelper = ({
       } else {
         changeHistory(input, Number(input));
       }
-    } else if (buttonValue === '(') {
+      return;
+    }
+    if (buttonValue === '(') {
       expressionDispatch({type: 'openParenthesis', payload: ''});
       setIsParenthesis(true);
     } else {
