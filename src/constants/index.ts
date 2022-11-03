@@ -12,4 +12,6 @@ export const testIds = {
   settingsContainer: 'settingsContainer',
   expressionInput: 'expressionInput',
   valueInput: 'valueInput',
+  clearButton: 'clearButton',
+  themeSwitcherContainer: 'themeSwitcherContainer',
 };

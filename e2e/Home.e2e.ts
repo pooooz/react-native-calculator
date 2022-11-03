@@ -1,22 +1,8 @@
 import {element} from 'detox';
 
+import {clearDisplay, clearHistory, pressButtonArray} from './utils';
+
 import {testIds} from '../src/constants';
-
-const clearHistory = async () => {
-  await element(by.id(testIds.calculatorContainer)).swipe('left');
-  await element(by.text('Clear all history')).tap();
-  await element(by.id(testIds.settingsContainer)).swipe('right');
-};
-
-const clearDisplay = async () => {
-  await element(by.id('C')).tap();
-};
-
-const pressButtonArray = async (buttonValues: Array<string>) => {
-  for (const buttonValue of buttonValues) {
-    await element(by.id(buttonValue)).tap();
-  }
-};
 
 describe('Home screen basic calculations', () => {
   beforeAll(async () => {
