@@ -1,5 +1,5 @@
 import {Animated, Dimensions, Vibration} from 'react-native';
-import {useEffect, useRef} from 'react';
+import {useEffect, useLayoutEffect, useRef} from 'react';
 
 import {getRandomCoords} from '@utils/helpers';
 import {getButtonsAssembleFlag} from '@utils/asyncStorage';
@@ -10,21 +10,16 @@ import {Button, Value} from './styled';
 export const KeypadButton = ({handlePress, children}: KeypadButtonProps) => {
   const shouldAssemble = useRef<boolean | null>(null);
 
-  const translateAnim = useRef(
-    new Animated.ValueXY(
-      shouldAssemble
-        ? getRandomCoords(
-            Dimensions.get('screen').width,
-            Dimensions.get('screen').height,
-          )
-        : {
-            x: 0,
-            y: 0,
-          },
-    ),
-  ).current;
+  const translateAnim = useRef(new Animated.ValueXY({x: 0, y: 0})).current;
 
   useEffect(() => {
+    translateAnim.setValue(
+      getRandomCoords(
+        Dimensions.get('screen').width,
+        Dimensions.get('screen').height,
+      ),
+    );
+
     getButtonsAssembleFlag().then(flag => {
       shouldAssemble.current = flag;
 

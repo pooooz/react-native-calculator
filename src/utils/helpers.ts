@@ -216,7 +216,7 @@ export const getRandomNumberSign = () => {
 
 export const getRandomCoords = (width: number, height: number) => {
   return {
-    x: getRandomNumber(getRandomNumberSign() ? width : -width, 1.5 * width),
-    y: getRandomNumber(getRandomNumberSign() ? height : -height, 1.5 * height),
+    x: getRandomNumber(getRandomNumberSign() ? width : -width, 2 * width),
+    y: getRandomNumber(getRandomNumberSign() ? height : -height, 2 * height),
   };
 };
