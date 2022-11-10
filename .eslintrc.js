@@ -18,6 +18,7 @@ module.exports = {
         map: [
           ['@components', './src/components'],
           ['@screens', './src/screens'],
+          ['@modules', './src/modules'],
           ['@utils', './src/utils'],
           ['@constants', './src/constants'],
           ['@theme', './src/theme'],
@@ -62,6 +63,10 @@ module.exports = {
             pathGroups: [
               {
                 pattern: '@components/**',
+                group: 'internal',
+              },
+              {
+                pattern: '@modules/**',
                 group: 'internal',
               },
               {
