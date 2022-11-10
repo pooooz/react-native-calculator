@@ -1,5 +1,11 @@
-import {Animated, Dimensions, Vibration} from 'react-native';
-import {useEffect, useLayoutEffect, useRef} from 'react';
+import {Dimensions, Vibration} from 'react-native';
+import {useEffect, useRef} from 'react';
+import Animated, {
+  useAnimatedStyle,
+  useSharedValue,
+  withSpring,
+  WithSpringConfig,
+} from 'react-native-reanimated';
 
 import {getRandomCoords} from '@utils/helpers';
 import {getButtonsAssembleFlag} from '@utils/asyncStorage';
@@ -10,28 +16,33 @@ import {Button, Value} from './styled';
 export const KeypadButton = ({handlePress, children}: KeypadButtonProps) => {
   const shouldAssemble = useRef<boolean | null>(null);
 
-  const translateAnim = useRef(new Animated.ValueXY({x: 0, y: 0})).current;
+  const offsetX = useSharedValue(0);
+  const offsetY = useSharedValue(0);
+
+  const animatedStyles = useAnimatedStyle(() => ({
+    transform: [{translateX: offsetX.value}, {translateY: offsetY.value}],
+  }));
 
   useEffect(() => {
-    translateAnim.setValue(
-      getRandomCoords(
-        Dimensions.get('screen').width,
-        Dimensions.get('screen').height,
-      ),
+    const {x, y} = getRandomCoords(
+      Dimensions.get('screen').width,
+      Dimensions.get('screen').height,
     );
+
+    offsetX.value = x;
+    offsetY.value = y;
 
     getButtonsAssembleFlag().then(flag => {
       shouldAssemble.current = flag;
 
-      if (flag) {
-        const translateConfig: Animated.SpringAnimationConfig = {
-          toValue: {x: 0, y: 0},
-          speed: 1,
-          bounciness: 2,
-          useNativeDriver: true,
-        };
+      const springConfig: WithSpringConfig = {
+        mass: 0.8,
+        stiffness: 500,
+      };
 
-        Animated.spring(translateAnim, translateConfig).start();
+      if (flag) {
+        offsetX.value = withSpring(0, springConfig);
+        offsetY.value = withSpring(0, springConfig);
       }
     });
   }, []);
@@ -45,17 +56,7 @@ export const KeypadButton = ({handlePress, children}: KeypadButtonProps) => {
   };
 
   return (
-    <Animated.View
-      style={
-        shouldAssemble.current
-          ? {
-              transform: [
-                {translateX: translateAnim.x},
-                {translateY: translateAnim.y},
-              ],
-            }
-          : null
-      }>
+    <Animated.View style={shouldAssemble.current ? animatedStyles : null}>
       <Button
         onPressIn={handleVibration}
         onPress={handlePress}

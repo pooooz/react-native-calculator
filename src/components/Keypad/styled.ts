@@ -1,4 +1,5 @@
-import {Animated, FlatList} from 'react-native';
+import {FlatList} from 'react-native';
+import Animated from 'react-native-reanimated';
 import styled from 'styled-components/native';
 
 const KEYPAD_SEPARATOR_WIDTH = 2;

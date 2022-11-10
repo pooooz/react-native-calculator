@@ -1,5 +1,11 @@
-import {useEffect, useRef} from 'react';
-import {Animated} from 'react-native';
+import {useEffect} from 'react';
+import Animated, {
+  interpolate,
+  useAnimatedStyle,
+  useSharedValue,
+  withSpring,
+  WithSpringConfig,
+} from 'react-native-reanimated';
 
 import {testIds} from '@constants';
 
@@ -7,42 +13,29 @@ import {DisplayProps} from './interfaces';
 import {ExpressionInput, ValueInput} from './styled';
 
 export const Display = ({expression}: DisplayProps) => {
-  const translateAnim = useRef(new Animated.Value(-100)).current;
-  const rotateAnim = useRef(new Animated.Value(0)).current;
+  const offset = useSharedValue(-100);
 
-  const spin = useRef(
-    rotateAnim.interpolate({
-      inputRange: [0, 1],
-      outputRange: ['355deg', '360deg'],
-    }),
-  ).current;
+  const animatedStyles = useAnimatedStyle(() => ({
+    transform: [
+      {
+        translateY: offset.value,
+      },
+      {
+        rotateZ: `${interpolate(offset.value, [-100, 0], [300, 360])}deg`,
+      },
+    ],
+  }));
 
   useEffect(() => {
-    const translateConfig: Animated.SpringAnimationConfig = {
-      toValue: 0,
-      speed: 1,
-      useNativeDriver: true,
+    const springConfig: WithSpringConfig = {
+      mass: 1.5,
     };
 
-    const rotateConfig: Animated.TimingAnimationConfig = {
-      toValue: 1,
-      duration: 500,
-      useNativeDriver: true,
-    };
-
-    Animated.spring(translateAnim, translateConfig).start();
-    Animated.timing(rotateAnim, rotateConfig).start();
+    offset.value = withSpring(0, springConfig);
   }, []);
 
   return (
-    <Animated.View
-      style={{
-        transform: [
-          {translateY: translateAnim},
-          {rotateZ: spin},
-          {perspective: 1000},
-        ],
-      }}>
+    <Animated.View style={animatedStyles}>
       <ExpressionInput
         value={expression.value.toString()}
         editable={false}
