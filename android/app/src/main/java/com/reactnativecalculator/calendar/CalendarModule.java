@@ -1,4 +1,4 @@
-package com.reactnativecalculator;
+package com.reactnativecalculator.calendar;
 import com.facebook.react.bridge.NativeModule;
 import com.facebook.react.bridge.ReactApplicationContext;
 import com.facebook.react.bridge.ReactContext;

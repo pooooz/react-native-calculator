@@ -1,5 +1,4 @@
 import {testIds} from '@constants';
-import {MyView} from '@modules/MyViewManager';
 
 import {GroupContainer, SettingsContainer} from './styled';
 
