@@ -7,11 +7,11 @@
 #define TIMEOUT_SECONDS 600
 #define TEXT_TO_LOOK_FOR @"Welcome to React"
 
-@interface reactNativeCalculatorTests : XCTestCase
+@interface PozCalculatorTests : XCTestCase
 
 @end
 
-@implementation reactNativeCalculatorTests
+@implementation PozCalculatorTests
 
 - (BOOL)findSubviewInView:(UIView *)view matching:(BOOL (^)(UIView *view))test
 {

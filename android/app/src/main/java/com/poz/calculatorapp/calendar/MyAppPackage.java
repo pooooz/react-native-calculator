@@ -1,9 +1,9 @@
-package com.reactnativecalculator.calendar;
+package com.poz.calculatorapp.calendar;
 import com.facebook.react.ReactPackage;
 import com.facebook.react.bridge.NativeModule;
 import com.facebook.react.bridge.ReactApplicationContext;
 import com.facebook.react.uimanager.ViewManager;
-import com.reactnativecalculator.calendar.CalendarModule;
+import com.poz.calculatorapp.calendar.CalendarModule;
 
 import java.util.ArrayList;
 import java.util.Collections;

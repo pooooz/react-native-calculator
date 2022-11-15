@@ -19,7 +19,6 @@ module.exports = {
           ['@components', './src/components'],
           ['@screens', './src/screens'],
           ['@modules', './src/modules'],
-          ['@nativeComponents', './src/nativeComponents'],
           ['@utils', './src/utils'],
           ['@constants', './src/constants'],
           ['@theme', './src/theme'],
@@ -68,10 +67,6 @@ module.exports = {
               },
               {
                 pattern: '@modules/**',
-                group: 'internal',
-              },
-              {
-                pattern: '@nativeComponents/**',
                 group: 'internal',
               },
               {

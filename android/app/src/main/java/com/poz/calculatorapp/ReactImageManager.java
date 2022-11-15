@@ -1,4 +1,4 @@
-package com.reactnativecalculator;
+package com.poz.calculatorapp;
 
 import com.facebook.drawee.backends.pipeline.Fresco;
 import com.facebook.react.bridge.ReactApplicationContext;
