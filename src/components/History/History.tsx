@@ -1,27 +1,32 @@
-import React, {useEffect, useRef} from 'react';
-import {Animated, FlatList} from 'react-native';
+import React, {useEffect} from 'react';
+import {FlatList} from 'react-native';
+import {
+  useAnimatedStyle,
+  useSharedValue,
+  withSpring,
+  WithSpringConfig,
+} from 'react-native-reanimated';
 
 import {HistoryProps} from './interfaces';
 import {EmptyPlug, HistoryContainer, HistoryItem} from './styled';
 
 export const History = React.memo(({history}: HistoryProps) => {
-  const translateAnim = useRef(new Animated.Value(-200)).current;
+  const offset = useSharedValue(-200);
+
+  const animatedStyles = useAnimatedStyle(() => ({
+    transform: [{translateX: offset.value}],
+  }));
 
   useEffect(() => {
-    const translateConfig: Animated.SpringAnimationConfig = {
-      toValue: 0,
-      speed: 1,
-      useNativeDriver: true,
+    const springConfig: WithSpringConfig = {
+      mass: 1.5,
     };
 
-    Animated.spring(translateAnim, translateConfig).start();
+    offset.value = withSpring(0, springConfig);
   }, []);
 
   return (
-    <HistoryContainer
-      style={{
-        transform: [{translateX: translateAnim}],
-      }}>
+    <HistoryContainer style={animatedStyles}>
       <FlatList
         data={history}
         renderItem={({item}) => (

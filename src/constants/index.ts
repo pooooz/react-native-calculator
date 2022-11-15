@@ -16,3 +16,12 @@ export const testIds = {
   themeSwitcherContainer: 'themeSwitcherContainer',
   buttonAssemblingSwitcherContainer: 'buttonAssemblingSwitcherContainer',
 };
+
+export const linking = {
+  prefixes: ['pozcalc://'],
+  config: {
+    screens: {
+      Settings: 'settings',
+    },
+  },
+};

@@ -1,5 +1,9 @@
-import {useEffect, useRef} from 'react';
-import {Animated} from 'react-native';
+import {useEffect} from 'react';
+import {
+  useAnimatedStyle,
+  useSharedValue,
+  withSpring,
+} from 'react-native-reanimated';
 
 import {buttonValues} from './mock';
 import {KeypadProps} from './interfaces';
@@ -8,26 +12,18 @@ import {KeypadContainer, List} from './styled';
 import {KeypadButton} from './components/KeypadButton';
 
 export const Keypad = ({handlePress}: KeypadProps) => {
-  const translateAnim = useRef(new Animated.Value(300)).current;
+  const offset = useSharedValue(300);
+
+  const animatedStyles = useAnimatedStyle(() => ({
+    transform: [{translateY: offset.value}],
+  }));
 
   useEffect(() => {
-    const translateConfig: Animated.SpringAnimationConfig = {
-      toValue: 0,
-      speed: 1,
-      useNativeDriver: true,
-    };
-    Animated.spring(translateAnim, translateConfig).start();
+    offset.value = withSpring(0);
   }, []);
 
   return (
-    <KeypadContainer
-      style={{
-        transform: [
-          {
-            translateY: translateAnim,
-          },
-        ],
-      }}>
+    <KeypadContainer style={animatedStyles}>
       <List
         data={buttonValues}
         renderItem={({item}) => (

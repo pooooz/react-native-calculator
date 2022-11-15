@@ -5,6 +5,7 @@ import {NavigationContainer} from '@react-navigation/native';
 import SplashScreen from 'react-native-splash-screen';
 
 import {Navigator} from '@components/Navigator';
+import {linking} from '@constants';
 
 import {getTheme, setTheme} from '@utils/asyncStorage';
 import {ThemePreferenceContext} from '@utils/context';
@@ -37,7 +38,7 @@ export const App = () => {
   return (
     <ThemePreferenceContext.Provider value={themeContextProviderValue}>
       <ThemeProvider theme={theme}>
-        <NavigationContainer>
+        <NavigationContainer linking={linking}>
           <Navigator />
         </NavigationContainer>
       </ThemeProvider>

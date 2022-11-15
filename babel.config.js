@@ -10,6 +10,7 @@ module.exports = {
           tests: ['./tests/'],
           '@components': './src/components',
           '@screens': './src/screens',
+          '@modules': './src/modules',
           types: './src/types',
           '@utils': './src/utils',
           '@constants': './src/constants/index',
@@ -17,5 +18,6 @@ module.exports = {
         },
       },
     ],
+    'react-native-reanimated/plugin',
   ],
 };
