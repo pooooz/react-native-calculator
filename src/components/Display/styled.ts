@@ -1,6 +1,9 @@
+import {Platform} from 'react-native';
 import styled from 'styled-components/native';
 
 const EXPRESSION_INPUT_BORDER_WIDTH = 1;
+
+const BORDER_STYLE = Platform.OS === 'android' ? 'dashed' : 'solid';
 
 export const ExpressionInput = styled.TextInput`
   padding: ${({theme}) => theme.spaces.m}px;
@@ -10,7 +13,7 @@ export const ExpressionInput = styled.TextInput`
   color: ${({theme}) => theme.colors.dim};
   border-bottom-width: ${EXPRESSION_INPUT_BORDER_WIDTH}px;
   border-bottom-color: ${({theme}) => theme.colors.dim};
-  border-style: dashed;
+  border-style: ${BORDER_STYLE};
 `;
 
 export const ValueInput = styled.TextInput`
