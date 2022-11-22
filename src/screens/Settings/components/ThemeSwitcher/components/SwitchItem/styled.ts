@@ -17,6 +17,6 @@ export const ChangeButton = styled.TouchableHighlight.attrs(({theme}) => ({
 `;
 
 export const Value = styled.Text`
-  font-family: PressStart2P;
+  font-family: PressStart2P-Regular;
   color: ${({theme}) => theme.colors.text};
 `;

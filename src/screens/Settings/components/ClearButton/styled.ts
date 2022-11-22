@@ -18,6 +18,6 @@ export const Button = styled.TouchableHighlight.attrs(() => ({
 `;
 
 export const Value = styled.Text`
-  font-family: PressStart2P;
+  font-family: PressStart2P-Regular;
   color: ${({theme}) => theme.colors.text};
 `;

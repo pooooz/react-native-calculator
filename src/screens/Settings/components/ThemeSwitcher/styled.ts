@@ -1,7 +1,7 @@
 import styled from 'styled-components/native';
 
 export const Heading = styled.Text`
-  font-family: PressStart2P;
+  font-family: PressStart2P-Regular;
   color: ${({theme}) => theme.colors.text};
 `;
 
