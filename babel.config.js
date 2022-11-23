@@ -11,6 +11,7 @@ module.exports = {
           '@components': './src/components',
           '@screens': './src/screens',
           '@modules': './src/modules',
+          '@NComponents': './src/NComponents',
           types: './src/types',
           '@utils': './src/utils',
           '@constants': './src/constants/index',

@@ -1,10 +1,12 @@
 import {createMaterialTopTabNavigator} from '@react-navigation/material-top-tabs';
 import {SafeAreaView} from 'react-native-safe-area-context';
 import styled from 'styled-components/native';
+import {Platform} from 'react-native';
 
 const Tab = createMaterialTopTabNavigator();
 
 export const StyledTabNavigator = styled(Tab.Navigator).attrs(({theme}) => ({
+  initialRouteName: 'Home',
   screenOptions: {
     tabBarStyle: {
       backgroundColor: theme.colors.background,
@@ -12,6 +14,7 @@ export const StyledTabNavigator = styled(Tab.Navigator).attrs(({theme}) => ({
     tabBarLabelStyle: {
       fontFamily: 'PressStart2P-Regular',
       color: theme.colors.digitButton,
+      fontSize: Platform.OS === 'ios' ? theme.fontSizes.xs : null,
     },
     tabBarIndicatorStyle: {backgroundColor: theme.colors.barIndicator},
   },

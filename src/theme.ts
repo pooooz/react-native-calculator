@@ -62,6 +62,7 @@ const colors = new Map<ThemeNames, ThemeColors>([
 ]);
 
 export const fontSizes: ThemeScaleValues = {
+  xs: 10,
   s: 16,
   m: 18,
   l: 24,
@@ -69,6 +70,7 @@ export const fontSizes: ThemeScaleValues = {
 };
 
 export const spaces: ThemeScaleValues = {
+  xs: 3,
   s: 5,
   m: 8,
   l: 16,

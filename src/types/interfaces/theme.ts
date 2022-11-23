@@ -12,6 +12,7 @@ export interface ThemeColors {
 }
 
 export interface ThemeScaleValues {
+  xs: number;
   s: number;
   m: number;
   l: number;

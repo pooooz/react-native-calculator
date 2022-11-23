@@ -17,6 +17,10 @@
 		81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */; };
 		8BA36E12292E85D00032CC19 /* RCTCalendarModule.m in Sources */ = {isa = PBXBuildFile; fileRef = 8BA36E11292E85D00032CC19 /* RCTCalendarModule.m */; };
 		8BA36E13292E85D00032CC19 /* RCTCalendarModule.m in Sources */ = {isa = PBXBuildFile; fileRef = 8BA36E11292E85D00032CC19 /* RCTCalendarModule.m */; };
+		8BA36E1E292EA3250032CC19 /* RNTMapManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 8BA36E1D292EA3250032CC19 /* RNTMapManager.m */; };
+		8BA36E1F292EA3250032CC19 /* RNTMapManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 8BA36E1D292EA3250032CC19 /* RNTMapManager.m */; };
+		8BA36E24292EB2940032CC19 /* RNTMapView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8BA36E23292EB2940032CC19 /* RNTMapView.m */; };
+		8BA36E25292EB2940032CC19 /* RNTMapView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8BA36E23292EB2940032CC19 /* RNTMapView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -48,6 +52,10 @@
 		89C6BE57DB24E9ADA2F236DE /* Pods-PozCalculator-PozCalculatorTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PozCalculator-PozCalculatorTests.release.xcconfig"; path = "Target Support Files/Pods-PozCalculator-PozCalculatorTests/Pods-PozCalculator-PozCalculatorTests.release.xcconfig"; sourceTree = "<group>"; };
 		8BA36E10292E85010032CC19 /* RCTCalendarModule.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RCTCalendarModule.h; sourceTree = "<group>"; };
 		8BA36E11292E85D00032CC19 /* RCTCalendarModule.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RCTCalendarModule.m; sourceTree = "<group>"; };
+		8BA36E1D292EA3250032CC19 /* RNTMapManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RNTMapManager.m; sourceTree = "<group>"; };
+		8BA36E20292EAF130032CC19 /* RCTConvert+Mapkit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "RCTConvert+Mapkit.h"; sourceTree = "<group>"; };
+		8BA36E21292EB1440032CC19 /* RNTMapView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RNTMapView.h; sourceTree = "<group>"; };
+		8BA36E23292EB2940032CC19 /* RNTMapView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RNTMapView.m; sourceTree = "<group>"; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
 		F847C5B8CB5D4745AA03C94A /* PressStart2P-Regular.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "PressStart2P-Regular.ttf"; path = "../assets/fonts/PressStart2P-Regular.ttf"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -92,6 +100,7 @@
 		13B07FAE1A68108700A75B9A /* PozCalculator */ = {
 			isa = PBXGroup;
 			children = (
+				8BA36E1C292EA3020032CC19 /* components */,
 				8BA36E0F292E6E030032CC19 /* modules */,
 				13B07FAF1A68108700A75B9A /* AppDelegate.h */,
 				13B07FB01A68108700A75B9A /* AppDelegate.mm */,
@@ -160,6 +169,25 @@
 				8BA36E10292E85010032CC19 /* RCTCalendarModule.h */,
 			);
 			path = CalendarModule;
+			sourceTree = "<group>";
+		};
+		8BA36E1C292EA3020032CC19 /* components */ = {
+			isa = PBXGroup;
+			children = (
+				8BA36E22292EB1590032CC19 /* Map */,
+			);
+			path = components;
+			sourceTree = "<group>";
+		};
+		8BA36E22292EB1590032CC19 /* Map */ = {
+			isa = PBXGroup;
+			children = (
+				8BA36E1D292EA3250032CC19 /* RNTMapManager.m */,
+				8BA36E20292EAF130032CC19 /* RCTConvert+Mapkit.h */,
+				8BA36E21292EB1440032CC19 /* RNTMapView.h */,
+				8BA36E23292EB2940032CC19 /* RNTMapView.m */,
+			);
+			path = Map;
 			sourceTree = "<group>";
 		};
 		BBD78D7AC51CEA395F1C20DB /* Pods */ = {
@@ -438,7 +466,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8BA36E25292EB2940032CC19 /* RNTMapView.m in Sources */,
 				00E356F31AD99517003FC87E /* PozCalculatorTests.m in Sources */,
+				8BA36E1F292EA3250032CC19 /* RNTMapManager.m in Sources */,
 				8BA36E13292E85D00032CC19 /* RCTCalendarModule.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -448,8 +478,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				8BA36E12292E85D00032CC19 /* RCTCalendarModule.m in Sources */,
+				8BA36E24292EB2940032CC19 /* RNTMapView.m in Sources */,
 				13B07FBC1A68108700A75B9A /* AppDelegate.mm in Sources */,
 				13B07FC11A68108700A75B9A /* main.m in Sources */,
+				8BA36E1E292EA3250032CC19 /* RNTMapManager.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
