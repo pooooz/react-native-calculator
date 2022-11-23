@@ -12,9 +12,11 @@
 		13B07FBC1A68108700A75B9A /* AppDelegate.mm in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB01A68108700A75B9A /* AppDelegate.mm */; };
 		13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
 		13B07FC11A68108700A75B9A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
+		25400BDAE4F749C1B83994AC /* PressStart2P-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F847C5B8CB5D4745AA03C94A /* PressStart2P-Regular.ttf */; };
 		7699B88040F8A987B510C191 /* libPods-PozCalculator-PozCalculatorTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 19F6CBCC0A4E27FBF8BF4A61 /* libPods-PozCalculator-PozCalculatorTests.a */; };
 		81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */; };
-		25400BDAE4F749C1B83994AC /* PressStart2P-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F847C5B8CB5D4745AA03C94A /* PressStart2P-Regular.ttf */; };
+		8BA36E12292E85D00032CC19 /* RCTCalendarModule.m in Sources */ = {isa = PBXBuildFile; fileRef = 8BA36E11292E85D00032CC19 /* RCTCalendarModule.m */; };
+		8BA36E13292E85D00032CC19 /* RCTCalendarModule.m in Sources */ = {isa = PBXBuildFile; fileRef = 8BA36E11292E85D00032CC19 /* RCTCalendarModule.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,8 +46,10 @@
 		5DCACB8F33CDC322A6C60F78 /* libPods-PozCalculator.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-PozCalculator.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = PozCalculator/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		89C6BE57DB24E9ADA2F236DE /* Pods-PozCalculator-PozCalculatorTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PozCalculator-PozCalculatorTests.release.xcconfig"; path = "Target Support Files/Pods-PozCalculator-PozCalculatorTests/Pods-PozCalculator-PozCalculatorTests.release.xcconfig"; sourceTree = "<group>"; };
+		8BA36E10292E85010032CC19 /* RCTCalendarModule.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RCTCalendarModule.h; sourceTree = "<group>"; };
+		8BA36E11292E85D00032CC19 /* RCTCalendarModule.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RCTCalendarModule.m; sourceTree = "<group>"; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
-		F847C5B8CB5D4745AA03C94A /* PressStart2P-Regular.ttf */ = {isa = PBXFileReference; name = "PressStart2P-Regular.ttf"; path = "../assets/fonts/PressStart2P-Regular.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		F847C5B8CB5D4745AA03C94A /* PressStart2P-Regular.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "PressStart2P-Regular.ttf"; path = "../assets/fonts/PressStart2P-Regular.ttf"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -88,6 +92,7 @@
 		13B07FAE1A68108700A75B9A /* PozCalculator */ = {
 			isa = PBXGroup;
 			children = (
+				8BA36E0F292E6E030032CC19 /* modules */,
 				13B07FAF1A68108700A75B9A /* AppDelegate.h */,
 				13B07FB01A68108700A75B9A /* AppDelegate.mm */,
 				13B07FB51A68108700A75B9A /* Images.xcassets */,
@@ -138,6 +143,15 @@
 				00E356EE1AD99517003FC87E /* PozCalculatorTests.xctest */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		8BA36E0F292E6E030032CC19 /* modules */ = {
+			isa = PBXGroup;
+			children = (
+				8BA36E10292E85010032CC19 /* RCTCalendarModule.h */,
+				8BA36E11292E85D00032CC19 /* RCTCalendarModule.m */,
+			);
+			path = modules;
 			sourceTree = "<group>";
 		};
 		BBD78D7AC51CEA395F1C20DB /* Pods */ = {
@@ -246,7 +260,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8BC22EFF292BED86009F565F /* PressStart2P.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -418,6 +431,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				00E356F31AD99517003FC87E /* PozCalculatorTests.m in Sources */,
+				8BA36E13292E85D00032CC19 /* RCTCalendarModule.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -425,6 +439,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8BA36E12292E85D00032CC19 /* RCTCalendarModule.m in Sources */,
 				13B07FBC1A68108700A75B9A /* AppDelegate.mm in Sources */,
 				13B07FC11A68108700A75B9A /* main.m in Sources */,
 			);
