@@ -1,11 +1,9 @@
 #import <Foundation/Foundation.h>
-// RCTCalendarModule.m
 #import "RCTCalendarModule.h"
 #import <React/RCTLog.h>
 
 @implementation RCTCalendarModule
 
-// To export a module named RCTCalendarModule
 RCT_EXPORT_MODULE();
 
 

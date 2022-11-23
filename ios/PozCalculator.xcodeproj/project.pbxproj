@@ -148,10 +148,18 @@
 		8BA36E0F292E6E030032CC19 /* modules */ = {
 			isa = PBXGroup;
 			children = (
-				8BA36E10292E85010032CC19 /* RCTCalendarModule.h */,
-				8BA36E11292E85D00032CC19 /* RCTCalendarModule.m */,
+				8BA36E14292E94C20032CC19 /* CalendarModule */,
 			);
 			path = modules;
+			sourceTree = "<group>";
+		};
+		8BA36E14292E94C20032CC19 /* CalendarModule */ = {
+			isa = PBXGroup;
+			children = (
+				8BA36E11292E85D00032CC19 /* RCTCalendarModule.m */,
+				8BA36E10292E85010032CC19 /* RCTCalendarModule.h */,
+			);
+			path = CalendarModule;
 			sourceTree = "<group>";
 		};
 		BBD78D7AC51CEA395F1C20DB /* Pods */ = {
