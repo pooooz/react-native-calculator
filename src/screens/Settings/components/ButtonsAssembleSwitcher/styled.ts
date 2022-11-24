@@ -11,7 +11,7 @@ export const ButtonsAssembleSwitcherContainer = styled.View`
 `;
 
 export const SwitcherLabel = styled.Text`
-  font-family: PressStart2P;
+  font-family: PressStart2P-Regular;
   color: ${({theme}) => theme.colors.text};
   font-size: ${LABEL_FONT_SIZE}px;
 

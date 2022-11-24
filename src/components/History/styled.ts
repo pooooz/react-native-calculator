@@ -9,12 +9,12 @@ export const HistoryContainer = styled(Animated.View)`
 `;
 
 export const HistoryItem = styled.Text`
-  font-family: PressStart2P;
+  font-family: PressStart2P-Regular;
   margin: 0 0 ${({theme}) => theme.spaces.s}px 0;
   color: ${({theme}) => theme.colors.historyItem};
 `;
 
 export const EmptyPlug = styled.Text`
-  font-family: PressStart2P;
+  font-family: PressStart2P-Regular;
   color: ${({theme}) => theme.colors.historyItem};
 `;

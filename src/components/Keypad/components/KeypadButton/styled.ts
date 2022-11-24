@@ -26,7 +26,7 @@ export const Button = styled.TouchableHighlight.attrs<ButtonProps>(
 `;
 
 export const Value = styled.Text<ButtonValueProps>`
-  font-family: PressStart2P;
+  font-family: PressStart2P-Regular;
   ${({theme, children}) => {
     if (children === '=') {
       return css`
