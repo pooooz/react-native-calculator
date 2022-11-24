@@ -11,14 +11,18 @@
     "test:android": "detox test -c android",
     "lint": "eslint . --ext .js,.jsx,.ts,.tsx",
     "lint:fix": "eslint . --ext .js,.jsx,.ts,.tsx --fix",
-    "e2e:att.debug": "detox build --configuration android.att.debug & detox test --configuration android.att.debug",
-    "e2e:att.release": "detox build --configuration android.att.release & detox test --configuration android.att.release",
-    "e2e:emu.debug": "detox build --configuration android.emu.debug & detox test --configuration android.emu.debug",
-    "e2e:emu.release": "detox build --configuration android.emu.release & detox test --configuration android.emu.release",
+    "e2e:android.att.debug": "detox build --configuration android.att.debug & detox test --configuration android.att.debug",
+    "e2e:android.att.release": "detox build --configuration android.att.release & detox test --configuration android.att.release",
+    "e2e:android.emu.debug": "detox build --configuration android.emu.debug & detox test --configuration android.emu.debug",
+    "e2e:android.emu.release": "detox build --configuration android.emu.release & detox test --configuration android.emu.release",
     "test:android.att.debug": "detox test --configuration android.att.debug",
     "test:android.att.release": "detox test --configuration android.att.release",
     "test:android.emu.debug": "detox test --configuration android.emu.debug",
-    "test:android.emu.release": "detox test --configuration android.emu.release"
+    "test:android.emu.release": "detox test --configuration android.emu.release",
+    "e2e:ios.sim.debug": "detox build --configuration ios.sim.debug & detox test --configuration ios.sim.debug",
+    "e2e:ios.sim.release": "detox build --configuration ios.sim.release & detox test --configuration ios.sim.release",
+    "test:ios.sim.debug": "detox test --configuration ios.sim.debug",
+    "test:ios.sim.release": "detox test --configuration ios.sim.release"
   },
   "dependencies": {
     "@react-native-async-storage/async-storage": "^1.17.10",
